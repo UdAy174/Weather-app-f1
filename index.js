@@ -24,5 +24,44 @@ async function fetchWeatherDetails(){
 }
 
 
+function switchTab(clickedTab){
+    apiErrorContainer.classList.remove("active");
+
+    if(clickedTab !== currentTab){
+        currentTab.classList.remove("current-tab");
+        currentTab = clickedTab;
+        currentTab.classList.add("current-tab");
+    } 
+
+    if(!searchForm.classList.contains("active")){
+        userInfoContainer.classList.remove("active");
+        grantAccessContainer.classList.remove("active");
+        searchForm.classList.add("active");
+    }
+
+    else{
+        searchForm.classList.remove("active");
+        userInfoContainer.classList.remover("active");
+    }
+}
+
+function getLocation(){
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } 
+    else {
+        console.log("No geolocation support");
+    }
+}
+
+function showPosition(position) {
+    let lat =  position.coords.latitude ;
+    let long = position.coords.longitude;
+
+    console.log(lat);
+    console.log(long);
+} 
+
+
 
 
