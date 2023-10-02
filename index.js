@@ -87,7 +87,7 @@ async function fetchUserWeatherInfo(coordinates) {
 
 }
 
-function renderWeatherInfo(){
+function renderWeatherInfo(weatherInfo){
     // firstly fetch all elements
 
     const cityName = document.querySelector("[data-cityName]");
@@ -99,7 +99,7 @@ function renderWeatherInfo(){
     const humidity = document.querySelector("[data-humidity]");
     const cloudiness = document.querySelector("[data-cloudiness]");
 
-    //fetch values from weatherINfo object and put it UI elements
+    //fetch values from weatherInfo object and put it UI elements
     cityName.innerText = weatherInfo?.name;
     countryIcon.src = `https://flagcdn.com/144x108/${weatherInfo?.sys?.country.toLowerCase()}.png`;
     desc.innerText = weatherInfo?.weather?.[0]?.description;
